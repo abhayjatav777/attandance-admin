@@ -10,48 +10,51 @@ import AllStudentAttendance from "../pages/all-student-attendance/Index";
 import StudentAttendance from "../pages/student-attendance/Index";
 import Settings from "../pages/settings";
 
-export const router = createBrowserRouter([
-  {
-    path: "*",
-    element: <ErrorPage />,
-  },
+export const router = createBrowserRouter(
+  [
+    {
+      path: "*",
+      element: <ErrorPage />,
+    },
 
-  {
-    path: "/",
-    element: <ProtectedRoute />,
-    children: [
-      {
-        path: "/",
-        element: <Dashboard />,
-      },
-      {
-        path: "students",
-        element: <Students />,
-      },
-      {
-        path: "attendance",
-        element: <AllStudentAttendance />,
-      },
-      {
-        path: "attendance/:userId",
-        element: <StudentAttendance />,
-      },
-      {
-        path: "settings",
-        element: <Settings />,
-      },
-    ],
-  },
-  {
-    path: "/forgot-password",
-    element: <ForgotPass />,
-  },
-  {
-    path: "/reset-password",
-    element: <ResetPassword />,
-  },
-  {
-    path: "/login",
-    element: <Login />,
-  },
-]);
+    {
+      path: "/",
+      element: <ProtectedRoute />,
+      children: [
+        {
+          path: "/",
+          element: <Dashboard />,
+        },
+        {
+          path: "students",
+          element: <Students />,
+        },
+        {
+          path: "attendance",
+          element: <AllStudentAttendance />,
+        },
+        {
+          path: "attendance/:userId",
+          element: <StudentAttendance />,
+        },
+        {
+          path: "settings",
+          element: <Settings />,
+        },
+      ],
+    },
+    {
+      path: "/forgot-password",
+      element: <ForgotPass />,
+    },
+    {
+      path: "/reset-password",
+      element: <ResetPassword />,
+    },
+    {
+      path: "/login",
+      element: <Login />,
+    },
+  ],
+  { basename: "/" }
+);
